@@ -25,20 +25,24 @@ class Test extends StatelessWidget {
 class AddCountPage extends StatefulWidget {
   @override
   createState() => _addCountPageState();
-
-
 }
 
 class _addCountPageState extends State<AddCountPage> {
+  var _count =0;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Startup Name Generator'),
-
       ),
-      body: new Text('萨达萨达撒'),
+      body: new Text("数字 $_count"),
+      floatingActionButton: new FloatingActionButton(onPressed: _onAdd,child: Icon(Icons.add),),
     );
   }
-
+  _onAdd(){
+    setState(() {
+      _count++;
+    });
+  }
 }

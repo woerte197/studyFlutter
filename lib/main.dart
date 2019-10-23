@@ -1,8 +1,10 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/test.dart';
+import 'package:flutter_app/page/new_route.dart';
+import 'package:flutter_app/page/RouterTestRoute.dart';
 
-void main() => runApp(new Test());
+void main() => runApp(new RouterTestRoute());
 
 class MyApp extends StatelessWidget {
   @override
