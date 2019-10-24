@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/page/test.dart';
 import 'package:flutter_app/page/new_route.dart';
 import 'package:flutter_app/page/RouterTestRoute.dart';
+import 'package:flutter_app/page/TapboxB.dart';
+import 'package:flutter_app/page/TabBoxC.dart';
+import 'package:flutter_app/page/first.dart';
 
-void main() => runApp(new RouterTestRoute());
+void main() => runApp(new TabBoxC());
 
 class MyApp extends StatelessWidget {
   @override
