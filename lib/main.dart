@@ -6,8 +6,10 @@ import 'package:flutter_app/page/RouterTestRoute.dart';
 import 'package:flutter_app/page/TapboxB.dart';
 import 'package:flutter_app/page/TabBoxC.dart';
 import 'package:flutter_app/page/first.dart';
+import 'package:flutter_app/page/LinearProgressIndicator.dart';
+import 'package:flutter_app/page/StackT.dart';
 
-void main() => runApp(new TabBoxC());
+void main() => runApp(new ConstrainedBoxA());
 
 class MyApp extends StatelessWidget {
   @override
