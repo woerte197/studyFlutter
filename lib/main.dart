@@ -1,15 +1,75 @@
+import 'package:camera/camera.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/page/test.dart';
-import 'package:flutter_app/page/new_route.dart';
-import 'package:flutter_app/page/RouterTestRoute.dart';
-import 'package:flutter_app/page/TapboxB.dart';
-import 'package:flutter_app/page/TabBoxC.dart';
-import 'package:flutter_app/page/first.dart';
-import 'package:flutter_app/page/LinearProgressIndicator.dart';
-import 'package:flutter_app/page/StackT.dart';
+import 'package:flutter_app/page/common.dart';
+import 'package:flutter_app/page/cream.dart';
+import 'package:flutter_app/page/http.dart';
+import 'package:flutter_app/i10n/localization_intl.dart';
+import 'package:flutter_app/page/dioa.dart';
 
-void main() => runApp(new ConstrainedBoxA());
+
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await common.init();
+  runApp(MaterialApp(
+    localizationsDelegates: [
+
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      DemoLocalizationsDelegate()
+    ],
+    supportedLocales: [
+      const Locale('en', 'US'), // English
+      const Locale('he', 'IL'), // Hebrew
+      const Locale('zh', 'CN'), // 中文简体
+      // ... other locales the app supports
+    ],
+    home: Scaffold(
+      body: new dioa(),
+    ),
+  ));
+}
+
+
+class CameraApp extends StatefulWidget {
+  @override
+  _CameraAppState createState() => _CameraAppState();
+}
+
+class _CameraAppState extends State<CameraApp> {
+  CameraController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = CameraController(common.cameras[0], ResolutionPreset.medium);
+    controller.initialize().then((_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (!controller.value.isInitialized) {
+      return Container();
+    }
+    return AspectRatio(
+        aspectRatio:
+        controller.value.aspectRatio,
+        child: CameraPreview(controller));
+  }
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -21,7 +81,7 @@ class MyApp extends StatelessWidget {
 //          title: new Text('Welcome to Flutter'),
 //        ),
 //        body: new Center(
-////          child: new Text(wordPair.asPascalCase),
+//          child: new Text(wordPair.asPascalCase),
 //          child: new RandomWords(),
 //        ),
 //      ),
