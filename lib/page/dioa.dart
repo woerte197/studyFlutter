@@ -16,6 +16,8 @@ class dioa extends StatelessWidget {
     params["password"] = "wangyang11";
     Response response = await NetUtil.ins
         .get("https://book.flutterchina.club/chapter11/dio.html",queryParameters: params);
+    Response response1 =  await NetUtil.ins.post("https://book.flutterchina.club/chapter11/dio.html", {"sad":12,"name":"jackma"});
+    print(response1);
     print(response.data.toString());
   }
 }

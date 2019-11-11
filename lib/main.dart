@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/page/FutureBuilderRoute.dart';
 import 'package:flutter_app/page/common.dart';
 import 'package:flutter_app/page/cream.dart';
 import 'package:flutter_app/page/http.dart';
@@ -27,7 +28,7 @@ void main() async {
       // ... other locales the app supports
     ],
     home: Scaffold(
-      body: new dioa(),
+      body: new FutureBuilderRoute(),
     ),
   ));
 }
