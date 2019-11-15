@@ -33,6 +33,9 @@ dependencies:
   intl_translation: ^0.17.7
   dio: ^3.0.4
   json_annotation: ^2.0.0
+  web_socket_channel: ^1.0.15
+  shared_preferences: ^0.5.4+5
+
 
   flutter_localizations:
     sdk: flutter

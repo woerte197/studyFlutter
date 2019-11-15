@@ -52,5 +52,6 @@ class NetUtil {
   Future<Response> postFormData(FormData  formData){
     return  dio.post("/info", data: formData);
   }
+  
 
 }
