@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/common/CacheObject.dart';
 import 'package:flutter_app/common/SharedPreferencesUtil.dart';
 import 'package:flutter_app/models/cacheConfig.dart';
 import 'package:flutter_app/models/profile.dart';
@@ -17,6 +18,8 @@ class Global{
   static List<MaterialColor> get themes => _themes;
   static Profile profile = Profile();
   static bool get isRelease => bool.fromEnvironment("dart.vm.product");
+  static NetCache netCache = NetCache();
+
   static Future init() async {
     SharedPreferencesUtil.init();
     var _profile = SharedPreferencesUtil.preferences.getString("profile");
