@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/page/FutureBuilderRoute.dart';
+import 'package:flutter_app/page/ImageDart.dart';
 import 'package:flutter_app/page/Socket.dart';
 import 'package:flutter_app/page/common.dart';
 import 'package:flutter_app/page/cream.dart';
@@ -29,7 +30,7 @@ void main() async {
       // ... other locales the app supports
     ],
     home: Scaffold(
-      body: new Socket(),
+      body: new ImageDart(),
     ),
   ));
 }

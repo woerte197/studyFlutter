@@ -5,6 +5,7 @@ import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_app/common/Global.dart';
+import 'package:flutter_app/models/repo.dart';
 import 'package:flutter_app/models/user.dart';
 
 class Git {
@@ -37,6 +38,18 @@ class Git {
   Future<User> login(String login,String pwd) async{
     String basic = 'Basic'+base64.encode(utf8.encode('$login:$pwd'));
     var r= await dio.get("user/$login",options: _options.merge(headers: {HttpHeaders.authorizationHeader:basic},extra: {"noCache":true,}),);
+    dio.options.headers[HttpHeaders.authorizationHeader] = basic;
+    Global.netCache.cache.clear();
+    Global.profile.token = basic;
+    return User.fromJson(r.data);
+  }
+
+  Future<List<Repo>> getRepos({Map<String,dynamic> queryParamaters,refresh = false} )async{
+    if(refresh){
+      _options.extra.addAll({"refresh":true,"list":true});
+    }
+    var r  = await dio.get<List>("user/repos",queryParameters: queryParamaters,options: _options);
+    return r.data.map((e)=>Repo.fromJson(e)).toList();
   }
 
 }

@@ -35,7 +35,8 @@ dependencies:
   json_annotation: ^2.0.0
   web_socket_channel: ^1.0.15
   shared_preferences: ^0.5.4+5
-
+  transparent_image: ^1.0.0
+  cached_network_image: ^1.1.3
 
   flutter_localizations:
     sdk: flutter
@@ -89,3 +90,4 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - assets/home_bg.png
+    - assets/test.jpg
